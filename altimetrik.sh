@@ -58,27 +58,39 @@ delete() {
     rm ${1}.log > /dev/null 2>&1;
 }
 
+dockerUpFunc() {
+    docker-compose -f ./docker-compose/docker-compose.yml up -d
+}
+
+dockerDownFunc() {
+    docker-compose -f ./docker-compose/docker-compose.yml down
+}
+
 if [ "$#" -ne 1 ]; then
     echo "Wrong number of arguments. e.g. ./altimetrik.sh <option>";
-    echo -e "Valid options are: \n\t 1. \"--start\" \t- clones, builds and starts the applications. 2. \"--stop\" \t- stops the applications. \n\t 3. \"--delete\" \t- deletes the repositories.";
+    echo -e "Valid options are: \n\t 1. \"--start\" \t\t- clones, builds and starts the applications. \n\t 2. \"--stop\" \t\t- stops the applications. \n\t 3. \"--docker-up\" \t- starts the application using docker. \n\t 4. \"--docker-down\" \t- stops all the docker contianers. \n\t 5. \"--delete\" \t\t- deletes the repositories.";
     exit 1;
 fi
 
 if [ $1 == "--start" ]; then
-    start "registry" "8761"; # -- Don't change this port
-    start "gateway" "8080";
-    start "greeting-service" "8081";
+    start "altimetrik-registry" "8761"; # -- Don't change this port
+    start "altimetrik-gateway" "8080";
+    start "altimetrik-greeting-service" "8081";
 elif [ $1 == "--stop" ]; then
-    stop "registry";
-    stop "gateway";
-    stop "greeting-service";
+    stop "altimetrik-registry";
+    stop "altimetrik-gateway";
+    stop "altimetrik-greeting-service";
+elif [ $1 == "--docker-up" ]; then
+    dockerUpFunc;
+elif [ $1 == "--docker-down" ]; then
+    dockerDownFunc;
 elif [ $1 == "--delete" ]; then
-    delete "registry";
-    delete "gateway";
-    delete "greeting-service";
+    delete "altimetrik-registry";
+    delete "altimetrik-gateway";
+    delete "altimetrik-greeting-service";
 else
     echo "Wrong value for option is provided."
-    echo -e "Valid options are: \n\t 1. \"--start\" \t- clones, builds and starts the applications. 2. \"--stop\" \t- stops the applications. \n\t 3. \"--delete\" \t- deletes the repositories.";
+    echo -e "Valid options are: \n\t 1. \"--start\" \t\t- clones, builds and starts the applications. \n\t 2. \"--stop\" \t\t- stops the applications. \n\t 3. \"--docker-up\" \t- starts the application using docker. \n\t 4. \"--docker-down\" \t- stops all the docker contianers. \n\t 5. \"--delete\" \t\t- deletes the repositories.";
     exit 1;
 fi
 
