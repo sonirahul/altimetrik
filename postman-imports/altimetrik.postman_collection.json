@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "b3437f53-6a34-4ed8-8aeb-9794f7dcd3f0",
+		"name": "Api Documentation",
+		"description": "Api Documentation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "authenticate",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"password\",\n    \"username\": \"admin\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/authenticate",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"authenticate"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\": \"<string>\",\n    \"username\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/authenticate",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "greet from gateway",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiIiLCJ1c2VySWQiOiJhZG1pbiIsImV4cCI6MTU3ODMxNTc4Mn0.6iO5xQHh1pTeDqFtEZwWAuaTISjkwY8rljMmPwc6ZO77XB3J1JDGxMCTxognbb1_jcfwYbLbtoi9KdeW7aT9gg"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/greet",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"greet"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/greet",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"greet"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "<string>"
+						}
+					]
+				},
+				{
+					"name": "greet from greeting-service",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiIiLCJ1c2VySWQiOiJhZG1pbiIsImV4cCI6MTU3ODMxNTc4Mn0.6iO5xQHh1pTeDqFtEZwWAuaTISjkwY8rljMmPwc6ZO77XB3J1JDGxMCTxognbb1_jcfwYbLbtoi9KdeW7aT9gg"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/greeting-service/api/greet",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"greeting-service",
+								"api",
+								"greet"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/greet",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"greet"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "<string>"
+						}
+					]
+				},
+				{
+					"name": "refreshToken",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiIiLCJ1c2VySWQiOiJhZG1pbiIsImV4cCI6MTU3ODMxNTc4Mn0.6iO5xQHh1pTeDqFtEZwWAuaTISjkwY8rljMmPwc6ZO77XB3J1JDGxMCTxognbb1_jcfwYbLbtoi9KdeW7aT9gg"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/refreshToken",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"refreshToken"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									},
+									{
+										"description": {
+											"content": "Authorization",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/refreshToken",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"refreshToken"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"variable": [
+		{
+			"id": "baseUrl",
+			"key": "baseUrl",
+			"value": "//localhost:8080/",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
